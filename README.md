@@ -5,5 +5,5 @@ In this project created a server by using nodejs and did not used any thrid pary
 
 This project is for the begainer, if anyone want to learn about very basic about nodejs, this project is for him.
 
-![](images/s1.png)
-![](images/s1.png)
+![](s1.png)
+![](s1.png)
