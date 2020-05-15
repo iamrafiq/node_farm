@@ -58,6 +58,6 @@ const server = http.createServer((req, res)=>{
     }
 });
 
-server.listen(8090, '127.0.0.1', ()=>{
-    console.log('Server has been started, Listening to request on port 8090');
+server.listen(8070, '127.0.0.1', ()=>{
+    console.log('Server has been started, Listening to request on port 8070');
 });
