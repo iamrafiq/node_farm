@@ -27,8 +27,9 @@ const replaceTemplate = (template, product)=>{
     return output;
 }
 const server = http.createServer((req, res)=>{
-    const pathName = req.url;
-    if(pathName === '/' || pathName === '/overview'){
+    const pathname = req.url;
+    const {query, pathname}=curl.parse(req.url, true);
+    if(pathname === '/' || pathname === '/overview'){
         /**
          * Loading Template Overview, Content of the 
          * template will be same for each request so we will 
@@ -40,12 +41,12 @@ const server = http.createServer((req, res)=>{
         const cardsHtml = dataObj.map(el=>replaceTemplate(templateCard, el)).join('');
         const output = templateOverview.replace('{%PRODUCT_CARDS%}', cardsHtml);
         res.end(output);
-    }else if(pathName==='/product'){
+    }else if(pathname==='/product'){
         res.writeHead(200,{
             'Content-type':'text/html'
         });
         res.end('this is the product');
-    }else if(pathName === '/api'){
+    }else if(pathname === '/api'){
         //Non-blocking or Async way
        /* fs.readFile(`${__dirname}/dev-data/data.json`,'utf-8', (err, data)=>{
             const productData = JSON.parse(data);
